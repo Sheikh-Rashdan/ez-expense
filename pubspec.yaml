@@ -23,3 +23,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+
+  fonts:
+    - family: Stack Sans Text
+      fonts:
+        - asset: assets/fonts/StackSansText-VariableFont_wght.ttf
