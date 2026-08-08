@@ -2,10 +2,12 @@ import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/appbar_container.dart';
 import 'package:ez_expense/widgets/horizontal_list_view.dart';
+import 'package:ez_expense/widgets/outlined_labelled_column.dart';
 import 'package:ez_expense/widgets/primary_button.dart';
 import 'package:ez_expense/widgets/single_value_donut_chart.dart';
 import 'package:ez_expense/widgets/sliver_page_column.dart';
 import 'package:ez_expense/widgets/translucent_outlined_button.dart';
+import 'package:ez_expense/widgets/vertical_list_view.dart';
 import 'package:ez_expense/widgets/white_card.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -105,6 +107,20 @@ class HomePage extends StatelessWidget {
                       Expanded(flex: 5, child: _WeekBarChart()),
                     ],
                   ),
+                ),
+                OutlinedLabelledColumn(
+                  label: "Recent Expenses",
+                  iconData: Icons.history_rounded,
+                  onTap: () {},
+                  children: [
+                    VerticalListView(
+                      height: 180,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return _RecentExpenseCard();
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
