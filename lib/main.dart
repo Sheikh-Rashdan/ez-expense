@@ -1,6 +1,6 @@
 import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/text_styles.dart';
-import 'package:ez_expense/pages/home_page.dart';
+import 'package:ez_expense/pages/app_shell.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,7 +54,7 @@ class MainApp extends StatelessWidget {
           constraints: BoxConstraints(maxWidth: 240),
         ),
       ),
-      home: HomePage(),
+      home: AppShell(),
     );
   }
 }
