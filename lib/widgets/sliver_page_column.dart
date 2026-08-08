@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class SliverPageColumn extends StatelessWidget {
-  const SliverPageColumn({super.key, required this.children});
+  const SliverPageColumn({
+    super.key,
+    required this.children,
+    this.scrollable = true,
+  });
 
   final List<Widget> children;
+  final bool scrollable;
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: ClampingScrollPhysics(),
+      physics: scrollable
+          ? const ClampingScrollPhysics()
+          : const NeverScrollableScrollPhysics(),
       slivers: [
-        SliverAppBar(title: Text("Ez Expense")),
+        SliverAppBar(title: const Text("Ez Expense")),
         SliverList(delegate: SliverChildListDelegate(children)),
       ],
     );
