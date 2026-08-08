@@ -59,6 +59,36 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class _ExpenseTemplateChip extends StatelessWidget {
+  const _ExpenseTemplateChip({
+    required this.label,
+    required this.color,
+    this.onTap,
+  });
+
+  final String label;
+  final Color color;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: ShapeDecoration(
+          color: color,
+          shape: StadiumBorder(
+            side: BorderSide(width: 3, color: KColors.highlightColor),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        alignment: Alignment.center,
+        child: Text(label, style: KTextStyles.medium16),
+      ),
+    );
+  }
+}
+
 class _HomePageAppbarWidget extends StatelessWidget {
   const _HomePageAppbarWidget();
 
