@@ -17,7 +17,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SliverPageColumn(
-        scrollable: false,
         children: [
           AppbarContainer(child: _HomePageAppbarWidget()),
           SizedBox(height: 12),
@@ -170,7 +169,8 @@ class _WeekBarChartState extends State<_WeekBarChart> {
               }
             },
             touchTooltipData: BarTouchTooltipData(
-              getTooltipColor: (group) => KColors.yellowSecondary2,
+              getTooltipColor: (group) =>
+                  KColors.yellowSecondary2.withValues(alpha: 0.75),
               getTooltipItem: (group, groupIndex, rod, rodIndex) =>
                   BarTooltipItem(
                     "₹ ${rod.toY.toStringAsFixed(2)}",
