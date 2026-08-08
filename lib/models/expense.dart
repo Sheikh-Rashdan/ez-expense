@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Expense {
   final String id;
   double amount;
@@ -16,6 +18,8 @@ class Expense {
     required this.createdAt,
     DateTime? updatedAt,
   }) : updatedAt = updatedAt ?? createdAt;
+
+  String get createdAtDDMMYY => DateFormat("dd-MM-yy").format(createdAt);
 
   factory Expense.fromJson(Map<String, dynamic> json) {
     return Expense(
