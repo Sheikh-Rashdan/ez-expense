@@ -6,15 +6,15 @@ class HorizontalListView extends StatelessWidget {
     required this.height,
     required this.itemCount,
     required this.itemBuilder,
+    this.separatorBuilder,
     this.padding = const EdgeInsets.symmetric(horizontal: 10),
-    this.spacing = 5,
   });
 
   final double height;
   final int itemCount;
   final Widget? Function(BuildContext context, int index) itemBuilder;
+  final Widget Function(BuildContext context, int index)? separatorBuilder;
   final EdgeInsets padding;
-  final double spacing;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,9 @@ class HorizontalListView extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         padding: padding,
-        separatorBuilder: (context, index) => SizedBox(width: spacing),
+        separatorBuilder: separatorBuilder == null
+            ? (context, index) => SizedBox(width: 5)
+            : separatorBuilder!,
         itemCount: itemCount,
         itemBuilder: itemBuilder,
       ),
