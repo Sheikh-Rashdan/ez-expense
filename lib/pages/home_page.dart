@@ -71,6 +71,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 WhiteCard(
+                  borderRadius: 18,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 15,
