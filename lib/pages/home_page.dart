@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SliverPageColumn(
+        title: "Ez Expense",
         children: [
           AppbarContainer(child: _HomePageAppbarWidget()),
           SizedBox(height: 12),
