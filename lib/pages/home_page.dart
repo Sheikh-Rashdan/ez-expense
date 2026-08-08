@@ -3,6 +3,8 @@ import 'package:ez_expense/widgets/appbar_container.dart';
 import 'package:ez_expense/widgets/primary_button.dart';
 import 'package:ez_expense/widgets/single_value_donut_chart.dart';
 import 'package:ez_expense/widgets/sliver_page_column.dart';
+import 'package:ez_expense/widgets/translucent_outlined_button.dart';
+import 'package:ez_expense/widgets/white_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,6 +22,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 12,
               children: [
                 PrimaryButton(
                   label: Text("Add Expense", style: KTextStyles.regular22),
@@ -28,6 +31,24 @@ class HomePage extends StatelessWidget {
                     size: KTextStyles.regular22.fontSize,
                   ),
                   onPressed: () {},
+                ),
+                WhiteCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      TranslucentOutlinedButton(
+                        label: Text(
+                          "More Templates",
+                          style: KTextStyles.regular22,
+                        ),
+                        icon: Icon(
+                          Icons.dashboard_customize_rounded,
+                          size: KTextStyles.regular22.fontSize,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
