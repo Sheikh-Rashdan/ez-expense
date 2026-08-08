@@ -9,7 +9,7 @@ class KColors {
   static const Color whiteText = Color(0xFFFFFFFF);
   static const Color blackText = Color(0xFF000000); // TODO: replace
   static const Color grayLightText = Color(0xFF7A7A7A);
-  static const Color grayDarkText = Color(0xFFCDCDCD);
+  static const Color grayDarkText = Color(0xFFACACAC);
 
   // primary
   static const Color greenPrimary1 = Color(0xFF90D977);
