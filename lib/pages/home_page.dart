@@ -1,5 +1,7 @@
+import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/appbar_container.dart';
+import 'package:ez_expense/widgets/horizontal_list_view.dart';
 import 'package:ez_expense/widgets/primary_button.dart';
 import 'package:ez_expense/widgets/single_value_donut_chart.dart';
 import 'package:ez_expense/widgets/sliver_page_column.dart';
@@ -33,19 +35,36 @@ class HomePage extends StatelessWidget {
                   onPressed: () {},
                 ),
                 WhiteCard(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
+                    spacing: 10,
                     children: [
-                      TranslucentOutlinedButton(
-                        label: Text(
-                          "More Templates",
-                          style: KTextStyles.regular22,
+                      HorizontalListView(
+                        height: 40,
+                        itemCount: 5,
+                        itemBuilder: (context, index) {
+                          // TODO: refactor params to take only expenseTemplate object
+                          return _ExpenseTemplateChip(
+                            label: "$index" * 5,
+                            color: Colors.pink,
+                            onTap: () {},
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: TranslucentOutlinedButton(
+                          label: Text(
+                            "More Templates",
+                            style: KTextStyles.regular22,
+                          ),
+                          icon: Icon(
+                            Icons.dashboard_customize_rounded,
+                            size: KTextStyles.regular22.fontSize,
+                          ),
+                          onPressed: () {},
                         ),
-                        icon: Icon(
-                          Icons.dashboard_customize_rounded,
-                          size: KTextStyles.regular22.fontSize,
-                        ),
-                        onPressed: () {},
                       ),
                     ],
                   ),
