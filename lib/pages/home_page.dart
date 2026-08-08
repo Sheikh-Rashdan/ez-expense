@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SliverPageColumn(
+        scrollable: false,
         children: [AppbarContainer(child: _HomePageAppbarWidget())],
       ),
     );
