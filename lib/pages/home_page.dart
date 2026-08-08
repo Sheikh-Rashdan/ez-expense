@@ -17,117 +17,115 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SliverPageColumn(
-        title: "Ez Expense",
-        children: [
-          AppbarContainer(child: _HomePageAppbarWidget()),
-          SizedBox(height: 12),
-          Padding(
-            padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              spacing: 12,
-              children: [
-                PrimaryButton(
-                  label: Text("Add Expense", style: KTextStyles.regular22),
-                  icon: Icon(
-                    Icons.add_circle_rounded,
-                    size: KTextStyles.regular22.fontSize,
-                  ),
-                  onPressed: () {},
+    return SliverPageColumn(
+      title: "Ez Expense",
+      children: [
+        AppbarContainer(child: _HomePageAppbarWidget()),
+        SizedBox(height: 12),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 12,
+            children: [
+              PrimaryButton(
+                label: Text("Add Expense", style: KTextStyles.regular22),
+                icon: Icon(
+                  Icons.add_circle_rounded,
+                  size: KTextStyles.regular22.fontSize,
                 ),
-                WhiteCard(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    spacing: 10,
-                    children: [
-                      HorizontalListView(
-                        height: 40,
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          // TODO: refactor params to take only expenseTemplate object
-                          return _ExpenseTemplateChip(
-                            label: "$index" * 5,
-                            color: Colors.pink,
-                            onTap: () {},
-                          );
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: TranslucentOutlinedButton(
-                          label: Text(
-                            "More Templates",
-                            style: KTextStyles.regular22,
-                          ),
-                          icon: Icon(
-                            Icons.dashboard_customize_rounded,
-                            size: KTextStyles.regular22.fontSize,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                WhiteCard(
-                  borderRadius: 18,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 15,
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: KColors.purpleSecondary2,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 8,
-                          ),
-                          child: Column(
-                            children: [
-                              Text("Last 7 Days", style: KTextStyles.regular16),
-                              FittedBox(
-                                child: Text(
-                                  "₹ 550",
-                                  style: KTextStyles.regular28,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Expanded(flex: 5, child: _WeekBarChart()),
-                    ],
-                  ),
-                ),
-                OutlinedLabelledColumn(
-                  label: "Recent Expenses",
-                  iconData: Icons.history_rounded,
-                  onTap: () {},
+                onPressed: () {},
+              ),
+              WhiteCard(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  spacing: 10,
                   children: [
-                    VerticalListView(
-                      height: 180,
+                    HorizontalListView(
+                      height: 40,
                       itemCount: 5,
                       itemBuilder: (context, index) {
-                        return _RecentExpenseCard();
+                        // TODO: refactor params to take only expenseTemplate object
+                        return _ExpenseTemplateChip(
+                          label: "$index" * 5,
+                          color: Colors.pink,
+                          onTap: () {},
+                        );
                       },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: TranslucentOutlinedButton(
+                        label: Text(
+                          "More Templates",
+                          style: KTextStyles.regular22,
+                        ),
+                        icon: Icon(
+                          Icons.dashboard_customize_rounded,
+                          size: KTextStyles.regular22.fontSize,
+                        ),
+                        onPressed: () {},
+                      ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              WhiteCard(
+                borderRadius: 18,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 15,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: KColors.purpleSecondary2,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 8,
+                        ),
+                        child: Column(
+                          children: [
+                            Text("Last 7 Days", style: KTextStyles.regular16),
+                            FittedBox(
+                              child: Text(
+                                "₹ 550",
+                                style: KTextStyles.regular28,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(flex: 5, child: _WeekBarChart()),
+                  ],
+                ),
+              ),
+              OutlinedLabelledColumn(
+                label: "Recent Expenses",
+                iconData: Icons.history_rounded,
+                onTap: () {},
+                children: [
+                  VerticalListView(
+                    height: 180,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return _RecentExpenseCard();
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
