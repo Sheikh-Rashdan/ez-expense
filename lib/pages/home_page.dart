@@ -7,6 +7,7 @@ import 'package:ez_expense/widgets/single_value_donut_chart.dart';
 import 'package:ez_expense/widgets/sliver_page_column.dart';
 import 'package:ez_expense/widgets/translucent_outlined_button.dart';
 import 'package:ez_expense/widgets/white_card.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -69,10 +70,135 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                WhiteCard(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 15,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: KColors.purpleSecondary2,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 8,
+                          ),
+                          child: Column(
+                            children: [
+                              Text("Last 7 Days", style: KTextStyles.regular16),
+                              FittedBox(
+                                child: Text(
+                                  "₹ 550",
+                                  style: KTextStyles.regular28,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      Expanded(flex: 5, child: _WeekBarChart()),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _WeekBarChart extends StatefulWidget {
+  const _WeekBarChart();
+
+  @override
+  State<_WeekBarChart> createState() => _WeekBarChartState();
+}
+
+class _WeekBarChartState extends State<_WeekBarChart> {
+  int? selectedGroup;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 80,
+      child: BarChart(
+        BarChartData(
+          maxY: 7 * 1.2,
+          borderData: FlBorderData(show: false),
+          titlesData: FlTitlesData(
+            leftTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            rightTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            topTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                reservedSize: KTextStyles.regular12.fontSize!,
+                getTitlesWidget: (value, meta) => Text(
+                  value.toInt().toString(), // TODO: add day name logic
+                  style: KTextStyles.medium10.copyWith(
+                    color: KColors.grayLightText,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          gridData: const FlGridData(show: false),
+          alignment: BarChartAlignment.spaceBetween,
+          barTouchData: BarTouchData(
+            handleBuiltInTouches: false,
+            touchCallback: (event, response) {
+              if (event is FlTapDownEvent && response?.spot != null) {
+                setState(() {
+                  final index = response!.spot!.touchedBarGroupIndex;
+                  selectedGroup = selectedGroup == index ? null : index;
+                });
+              }
+            },
+            touchTooltipData: BarTouchTooltipData(
+              getTooltipColor: (group) => KColors.yellowSecondary2,
+              getTooltipItem: (group, groupIndex, rod, rodIndex) =>
+                  BarTooltipItem(
+                    "₹ ${rod.toY.toStringAsFixed(2)}",
+                    KTextStyles.regular12,
+                  ),
+              tooltipPadding: const EdgeInsets.only(left: 4, right: 4, top: 2),
+            ),
+          ),
+          barGroups: <double>[3, 6, 1, 2, 4, 6, 7].asMap().entries.map((entry) {
+            final int index = entry.key;
+            final double value = entry.value;
+            return BarChartGroupData(
+              x: index,
+              barRods: [
+                BarChartRodData(
+                  toY: value,
+                  color: KColors.purpleSecondary2,
+                  backDrawRodData: BackgroundBarChartRodData(
+                    show: true,
+                    color: KColors.neutralBackground,
+                    toY: 7 * 1.15,
+                  ),
+                  width: 10,
+                ),
+              ],
+              showingTooltipIndicators: selectedGroup == index ? [0] : [1],
+            );
+          }).toList(),
+        ),
       ),
     );
   }
@@ -97,7 +223,7 @@ class _ExpenseTemplateChip extends StatelessWidget {
         decoration: ShapeDecoration(
           color: color,
           shape: StadiumBorder(
-            side: BorderSide(width: 3, color: KColors.highlightColor),
+            side: BorderSide(width: 3, color: KColors.highlight),
           ),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 20),
