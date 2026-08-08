@@ -20,11 +20,7 @@ class WhiteCard extends StatelessWidget {
         color: KColors.cardLight,
         borderRadius: BorderRadius.circular(borderRadius),
         boxShadow: const [
-          BoxShadow(
-            blurRadius: 8,
-            offset: Offset(0, 2),
-            color: KColors.shadowColor,
-          ),
+          BoxShadow(blurRadius: 8, offset: Offset(0, 2), color: KColors.shadow),
         ],
       ),
       padding: padding,

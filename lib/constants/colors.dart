@@ -35,15 +35,16 @@ class KColors {
   static const Color purpleSecondary2 = Color(0xFF9872C7);
   static const Color purpleSecondary3 = Color(0xFF7A53A9);
 
-  static const Color yellowSecondary1 = Color(0xFFDBBD6B);
-  static const Color yellowSecondary2 = Color(0xFFC4A245);
-  static const Color yellowSecondary3 = Color(0xFF9B7F34);
+  static const Color yellowSecondary1 = Color(0xFFDEBB5D);
+  static const Color yellowSecondary2 = Color(0xFFC59E34);
+  static const Color yellowSecondary3 = Color(0xFF9C7B23);
 
   // others
   static const Color cardLight = Color(0xFFFFFFFF);
   static const Color cardDark = Color(0xFF474747);
   static const Color dividerLight = Color(0x804F4F4F);
   static const Color dividerDark = Color(0x80757575);
-  static const Color shadowColor = Color(0x40000000);
-  static const Color highlightColor = Color(0x40FFFFFF);
+  static const Color shadow = Color(0x40000000);
+  static const Color highlight = Color(0x40FFFFFF);
+  static const Color neutralBackground = Color(0xFFDADADA);
 }
