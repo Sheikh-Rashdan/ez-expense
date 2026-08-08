@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
       title: "Ez Expense",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: KColors.seedColor),
+        colorScheme: ColorScheme.fromSeed(seedColor: KColors.seedColor),
         scaffoldBackgroundColor: KColors.scaffoldLight,
         textTheme: Typography.material2021().white.apply(
           fontFamily: KTextStyles.fontFamily,
