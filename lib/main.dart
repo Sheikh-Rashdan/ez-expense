@@ -46,6 +46,13 @@ class MainApp extends StatelessWidget {
           titleTextStyle: KTextStyles.medium28,
           centerTitle: true,
         ),
+        tooltipTheme: TooltipThemeData(
+          decoration: ShapeDecoration(
+            color: KColors.yellowSecondary2.withValues(alpha: 0.75),
+            shape: StadiumBorder(),
+          ),
+          constraints: BoxConstraints(maxWidth: 240),
+        ),
       ),
       home: HomePage(),
     );
