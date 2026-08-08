@@ -41,9 +41,18 @@ class MainApp extends StatelessWidget {
           },
         ),
         appBarTheme: AppBarTheme(
+          leadingWidth: 70,
           backgroundColor: KColors.greenPrimary1,
           foregroundColor: KColors.whiteText,
-          titleTextStyle: KTextStyles.medium28,
+          titleTextStyle: KTextStyles.medium28.copyWith(
+            shadows: [
+              Shadow(
+                offset: Offset(0, 1.5),
+                blurRadius: 2,
+                color: KColors.shadow,
+              ),
+            ],
+          ),
           centerTitle: true,
         ),
         tooltipTheme: TooltipThemeData(
