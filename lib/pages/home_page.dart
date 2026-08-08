@@ -115,6 +115,59 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class _RecentExpenseCard extends StatelessWidget {
+  const _RecentExpenseCard();
+
+  // TODO: take parameter as Expense and change display values
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      richMessage: WidgetSpan(
+        child: Text(
+          "Aldo's" * 100, // MARK: description
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+      verticalOffset: 10,
+      preferBelow: false,
+      triggerMode: TooltipTriggerMode.tap,
+      child: SizedBox(
+        height: 50,
+        child: ListTile(
+          textColor: KColors.grayLightText,
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: "Breakfast", // MARK: category name
+                    style: KTextStyles.regular22.copyWith(color: Colors.pink),
+                  ),
+                  TextSpan(text: " • ", style: KTextStyles.regular22),
+                  TextSpan(
+                    text: "07/08/26",
+                    style: KTextStyles.regular12,
+                  ), // MARK: date
+                ],
+              ),
+            ),
+          ),
+          leading: Icon(
+            Icons.restaurant_rounded, // MARK: category icon
+            size: KTextStyles.regular28.fontSize!,
+            color: Colors.pink,
+          ),
+          trailing: Text("₹ 65", style: KTextStyles.regular22), // MARK: amount
+        ),
+      ),
+    );
+  }
+}
+
 class _WeekBarChart extends StatefulWidget {
   const _WeekBarChart();
 
