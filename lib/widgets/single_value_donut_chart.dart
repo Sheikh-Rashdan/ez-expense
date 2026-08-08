@@ -24,8 +24,9 @@ class SingleValueDonutChart extends StatelessWidget {
           PieChartSectionData(
             value: 1 - fraction,
             color: Colors.white.withAlpha(80),
-            radius: 12.5,
+            cornerRadius: 100,
             showTitle: false,
+            radius: 12.5,
           ),
         ],
       ),

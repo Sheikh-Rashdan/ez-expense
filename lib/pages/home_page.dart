@@ -67,6 +67,7 @@ class _HomePageAppbarWidget extends StatelessWidget {
             ],
           ),
         ),
+        SizedBox(width: 10),
         SizedBox(
           height: 80,
           width: 80,
