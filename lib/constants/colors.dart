@@ -45,4 +45,5 @@ class KColors {
   static const Color dividerLight = Color(0x804F4F4F);
   static const Color dividerDark = Color(0x80757575);
   static const Color shadowColor = Color(0x40000000);
+  static const Color highlightColor = Color(0x40FFFFFF);
 }
