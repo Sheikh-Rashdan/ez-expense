@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
                 onTap: () {},
                 children: [
                   VerticalListView(
-                    height: 180,
+                    height: 240,
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return _RecentExpenseCard();
@@ -125,6 +125,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
+        SizedBox(height: 12),
       ],
     );
   }
