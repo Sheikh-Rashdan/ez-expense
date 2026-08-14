@@ -1,16 +1,16 @@
 import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/page_paddings.dart';
 import 'package:ez_expense/constants/text_styles.dart';
-import 'package:ez_expense/widgets/appbar_container.dart';
-import 'package:ez_expense/widgets/expense_template_chip.dart';
-import 'package:ez_expense/widgets/horizontal_list_view.dart';
-import 'package:ez_expense/widgets/outlined_labelled_column.dart';
-import 'package:ez_expense/widgets/primary_button.dart';
-import 'package:ez_expense/widgets/single_value_donut_chart.dart';
-import 'package:ez_expense/widgets/sliver_page_column.dart';
-import 'package:ez_expense/widgets/translucent_outlined_button.dart';
-import 'package:ez_expense/widgets/vertical_list_view.dart';
-import 'package:ez_expense/widgets/white_card.dart';
+import 'package:ez_expense/widgets/container/appbar_container.dart';
+import 'package:ez_expense/widgets/input/expense_template_chip.dart';
+import 'package:ez_expense/widgets/layout/horizontal_list_view.dart';
+import 'package:ez_expense/widgets/container/outlined_labelled_column.dart';
+import 'package:ez_expense/widgets/input/primary_button.dart';
+import 'package:ez_expense/widgets/graph/single_value_donut_chart.dart';
+import 'package:ez_expense/widgets/layout/sliver_page_column.dart';
+import 'package:ez_expense/widgets/input/translucent_outlined_button.dart';
+import 'package:ez_expense/widgets/layout/vertical_list_view.dart';
+import 'package:ez_expense/widgets/container/white_card.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
