@@ -2,13 +2,11 @@ import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/page_paddings.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/container/appbar_container.dart';
-import 'package:ez_expense/widgets/input/expense_template_chip.dart';
-import 'package:ez_expense/widgets/layout/horizontal_list_view.dart';
+import 'package:ez_expense/widgets/input/expense_template_card.dart';
 import 'package:ez_expense/widgets/container/outlined_labelled_column.dart';
 import 'package:ez_expense/widgets/input/primary_button.dart';
 import 'package:ez_expense/widgets/graph/single_value_donut_chart.dart';
 import 'package:ez_expense/widgets/layout/sliver_page_column.dart';
-import 'package:ez_expense/widgets/input/translucent_outlined_button.dart';
 import 'package:ez_expense/widgets/layout/vertical_list_view.dart';
 import 'package:ez_expense/widgets/container/white_card.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -40,42 +38,7 @@ class HomePage extends StatelessWidget {
                 ),
                 onPressed: () {},
               ),
-              WhiteCard(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  spacing: 10,
-                  children: [
-                    // TODO: implement condition to check if templates exist
-                    if (true)
-                      HorizontalListView(
-                        height: 40,
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return ExpenseTemplateChip(
-                            label: "$index" * 5,
-                            color: Colors.pink,
-                            onTap: () {},
-                          );
-                        },
-                      ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: TranslucentOutlinedButton(
-                        label: Text(
-                          "${true ? "More" : "Create"} Templates",
-                          style: KTextStyles.regular22,
-                        ),
-                        icon: Icon(
-                          Icons.dashboard_customize_rounded,
-                          size: KTextStyles.regular22.fontSize,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              ExpenseTemplateCard(),
               WhiteCard(
                 borderRadius: 18,
                 padding: const EdgeInsets.symmetric(
