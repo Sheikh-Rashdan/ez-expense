@@ -15,6 +15,7 @@ class CreateExpensePage extends StatefulWidget {
 
 class _CreateExpensePageState extends State<CreateExpensePage> {
   final TextEditingController _amountController = TextEditingController();
+  String? _selectedCategoryId;
 
   @override
   void dispose() {
@@ -40,6 +41,7 @@ class _CreateExpensePageState extends State<CreateExpensePage> {
               ExpenseTemplateCard(),
               WhiteCard(
                 child: Column(
+                  spacing: 10,
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -52,6 +54,95 @@ class _CreateExpensePageState extends State<CreateExpensePage> {
                           Text("Amount", style: KTextStyles.regular28),
                           _AmountField(amountController: _amountController),
                         ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsGeometry.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: DropdownButton<String>(
+                        items:
+                            [
+                                  "-",
+                                  "id1",
+                                  "id2",
+                                  "id3",
+                                  "id4",
+                                  "id5",
+                                  "id6",
+                                  "id7",
+                                  "id8",
+                                  "id9",
+                                  "id10",
+                                  "id11",
+                                  "id12",
+                                  "id13",
+                                ]
+                                .map(
+                                  (value) => DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  ),
+                                )
+                                .toList(),
+                        selectedItemBuilder: (context) =>
+                            [
+                                  "-",
+                                  "id1",
+                                  "id2",
+                                  "id3",
+                                  "id4",
+                                  "id5",
+                                  "id6",
+                                  "id7",
+                                  "id8",
+                                  "id9",
+                                  "id10",
+                                  "id11",
+                                  "id12",
+                                  "id13",
+                                ]
+                                .map(
+                                  (value) => Center(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      spacing: 10,
+                                      children: [
+                                        Icon(
+                                          Icons.category_rounded,
+                                          color: Colors.pink,
+                                        ),
+                                        Text(
+                                          value.toUpperCase(),
+                                          style: KTextStyles.regular22.copyWith(
+                                            color: Colors.pink,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                        value: _selectedCategoryId,
+                        style: KTextStyles.regular22.copyWith(
+                          color: KColors.grayLightText,
+                        ),
+                        menuMaxHeight: 500,
+                        isExpanded: true,
+                        hint: Text("Category"),
+                        alignment: AlignmentGeometry.center,
+                        underline: Container(
+                          height: 1,
+                          color: KColors.grayLightText,
+                        ),
+                        onChanged: (String? categoryId) {
+                          setState(() {
+                            _selectedCategoryId = categoryId != "-"
+                                ? categoryId
+                                : null;
+                          });
+                        },
                       ),
                     ),
                   ],
@@ -102,6 +193,7 @@ class _AmountFieldState extends State<_AmountField> {
             hintStyle: KTextStyles.regular36.copyWith(
               color: KColors.greenPrimary3,
             ),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
           ),
           style: KTextStyles.regular36,
           keyboardType: TextInputType.numberWithOptions(decimal: true),
