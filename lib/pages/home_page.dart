@@ -21,12 +21,12 @@ class HomePage extends StatelessWidget {
       title: "Ez Expense",
       children: [
         AppbarContainer(child: _HomePageAppbarWidget()),
-        SizedBox(height: 12),
+        SizedBox(height: 14),
         Padding(
-          padding: const EdgeInsetsGeometry.symmetric(horizontal: 10),
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            spacing: 12,
+            spacing: 14,
             children: [
               PrimaryButton(
                 label: Text("Add Expense", style: KTextStyles.regular22),
