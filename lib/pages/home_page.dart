@@ -43,22 +43,24 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   spacing: 10,
                   children: [
-                    HorizontalListView(
-                      height: 40,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return ExpenseTemplateChip(
-                          label: "$index" * 5,
-                          color: Colors.pink,
-                          onTap: () {},
-                        );
-                      },
-                    ),
+                    // TODO: implement condition to check if templates exist
+                    if (true)
+                      HorizontalListView(
+                        height: 40,
+                        itemCount: 5,
+                        itemBuilder: (context, index) {
+                          return ExpenseTemplateChip(
+                            label: "$index" * 5,
+                            color: Colors.pink,
+                            onTap: () {},
+                          );
+                        },
+                      ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: TranslucentOutlinedButton(
                         label: Text(
-                          "More Templates",
+                          "${true ? "More" : "Create"} Templates",
                           style: KTextStyles.regular22,
                         ),
                         icon: Icon(
