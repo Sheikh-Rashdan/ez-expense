@@ -1,4 +1,5 @@
 import 'package:ez_expense/constants/colors.dart';
+import 'package:ez_expense/constants/page_paddings.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/appbar_container.dart';
 import 'package:ez_expense/widgets/expense_template_chip.dart';
@@ -22,12 +23,14 @@ class HomePage extends StatelessWidget {
       title: "Ez Expense",
       children: [
         AppbarContainer(child: _HomePageAppbarWidget()),
-        SizedBox(height: 14),
+        SizedBox(height: KPagePaddings.columnSpacing),
         Padding(
-          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          padding: const EdgeInsetsGeometry.symmetric(
+            horizontal: KPagePaddings.horizontalMargin,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            spacing: 14,
+            spacing: KPagePaddings.columnSpacing,
             children: [
               PrimaryButton(
                 label: Text("Add Expense", style: KTextStyles.regular22),
