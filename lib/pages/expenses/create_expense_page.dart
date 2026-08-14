@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CreateExpensePage extends StatefulWidget {
-  const CreateExpensePage({super.key});
+  const CreateExpensePage({super.key, this.isEditing = false});
+
+  final bool isEditing;
 
   @override
   State<CreateExpensePage> createState() => _CreateExpensePageState();
@@ -39,7 +41,7 @@ class _CreateExpensePageState extends State<CreateExpensePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             spacing: KPagePaddings.columnSpacing,
             children: [
-              ExpenseTemplateCard(),
+              if (!widget.isEditing) ExpenseTemplateCard(),
               WhiteCard(
                 child: Column(
                   spacing: 10,
