@@ -1,6 +1,7 @@
 import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/appbar_container.dart';
+import 'package:ez_expense/widgets/expense_template_chip.dart';
 import 'package:ez_expense/widgets/horizontal_list_view.dart';
 import 'package:ez_expense/widgets/outlined_labelled_column.dart';
 import 'package:ez_expense/widgets/primary_button.dart';
@@ -46,8 +47,7 @@ class HomePage extends StatelessWidget {
                       height: 40,
                       itemCount: 5,
                       itemBuilder: (context, index) {
-                        // TODO: refactor params to take only expenseTemplate object
-                        return _ExpenseTemplateChip(
+                        return ExpenseTemplateChip(
                           label: "$index" * 5,
                           color: Colors.pink,
                           onTap: () {},
@@ -269,36 +269,6 @@ class _WeekBarChartState extends State<_WeekBarChart> {
             );
           }).toList(),
         ),
-      ),
-    );
-  }
-}
-
-class _ExpenseTemplateChip extends StatelessWidget {
-  const _ExpenseTemplateChip({
-    required this.label,
-    required this.color,
-    this.onTap,
-  });
-
-  final String label;
-  final Color color;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: ShapeDecoration(
-          color: color,
-          shape: StadiumBorder(
-            side: BorderSide(width: 3, color: KColors.highlight),
-          ),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        alignment: Alignment.center,
-        child: Text(label, style: KTextStyles.medium16),
       ),
     );
   }
