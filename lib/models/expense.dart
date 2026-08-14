@@ -5,7 +5,7 @@ class Expense {
   double amount;
   String? categoryId;
   String? description;
-  String? merchantId;
+  String? merchant;
   DateTime createdAt;
   DateTime updatedAt;
 
@@ -14,7 +14,7 @@ class Expense {
     required this.amount,
     this.categoryId,
     this.description,
-    this.merchantId,
+    this.merchant,
     required this.createdAt,
     DateTime? updatedAt,
   }) : updatedAt = updatedAt ?? createdAt;
@@ -27,7 +27,7 @@ class Expense {
       amount: (json["amount"] as num).toDouble(),
       categoryId: json["categoryId"] as String?,
       description: json["description"] as String?,
-      merchantId: json["merchantId"] as String,
+      merchant: json["merchant"] as String,
       createdAt: DateTime.parse(json["createdAt"] as String),
       updatedAt: DateTime.parse(json["updatedAt"] as String),
     );
@@ -39,7 +39,7 @@ class Expense {
       "amount": amount,
       "categoryId": categoryId,
       "description": description,
-      "merchantId": merchantId,
+      "merchant": merchant,
       "createdAt": createdAt.toIso8601String(),
       "updatedAt": updatedAt.toIso8601String(),
     };
