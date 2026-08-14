@@ -3,6 +3,7 @@ import 'package:ez_expense/constants/page_paddings.dart';
 import 'package:ez_expense/constants/text_styles.dart';
 import 'package:ez_expense/widgets/container/white_card.dart';
 import 'package:ez_expense/widgets/input/expense_template_card.dart';
+import 'package:ez_expense/widgets/input/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -146,6 +147,17 @@ class _CreateExpensePageState extends State<CreateExpensePage> {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Hero(
+                tag: "Add",
+                child: PrimaryButton(
+                  label: Text("Add Expense", style: KTextStyles.regular22),
+                  icon: Icon(
+                    Icons.add_circle_rounded,
+                    size: KTextStyles.regular22.fontSize,
+                  ),
+                  onPressed: () {},
                 ),
               ),
             ],
