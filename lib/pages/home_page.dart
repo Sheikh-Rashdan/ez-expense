@@ -115,12 +115,20 @@ class HomePage extends StatelessWidget {
                 iconData: Icons.history_rounded,
                 onTap: () {},
                 children: [
-                  VerticalListView(
-                    height: 240,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return _RecentExpenseCard();
-                    },
+                  Container(
+                    decoration: BoxDecoration(
+                      color: KColors.greenPrimary2.withAlpha(25),
+                      borderRadius: BorderRadius.vertical(
+                        bottom: Radius.circular(10),
+                      ),
+                    ),
+                    child: VerticalListView(
+                      height: 240,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return _RecentExpenseCard();
+                      },
+                    ),
                   ),
                 ],
               ),
