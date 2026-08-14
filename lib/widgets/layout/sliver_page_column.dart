@@ -28,6 +28,7 @@ class SliverPageColumn extends StatelessWidget {
       slivers: [
         SliverAppBar(
           title: Text(title),
+          backgroundColor: KColors.greenPrimary1,
           leading: IconButton(
             onPressed: () => _onNavigationMenuPressed(context),
             icon: Icon(

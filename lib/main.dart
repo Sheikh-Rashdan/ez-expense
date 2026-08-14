@@ -42,7 +42,7 @@ class MainApp extends StatelessWidget {
         ),
         appBarTheme: AppBarTheme(
           leadingWidth: 70,
-          backgroundColor: KColors.greenPrimary1,
+          backgroundColor: KColors.greenPrimary2,
           foregroundColor: KColors.whiteText,
           titleTextStyle: KTextStyles.medium28.copyWith(
             shadows: [
