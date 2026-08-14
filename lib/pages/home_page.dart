@@ -1,6 +1,7 @@
 import 'package:ez_expense/constants/colors.dart';
 import 'package:ez_expense/constants/page_paddings.dart';
 import 'package:ez_expense/constants/text_styles.dart';
+import 'package:ez_expense/pages/expenses/create_expense_page.dart';
 import 'package:ez_expense/widgets/container/appbar_container.dart';
 import 'package:ez_expense/widgets/input/expense_template_card.dart';
 import 'package:ez_expense/widgets/container/outlined_labelled_column.dart';
@@ -30,13 +31,23 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             spacing: KPagePaddings.columnSpacing,
             children: [
-              PrimaryButton(
-                label: Text("Add Expense", style: KTextStyles.regular22),
-                icon: Icon(
-                  Icons.add_circle_rounded,
-                  size: KTextStyles.regular22.fontSize,
+              // TODO: change tag use constants
+              Hero(
+                tag: "Add",
+                child: PrimaryButton(
+                  label: Text("Add Expense", style: KTextStyles.regular22),
+                  icon: Icon(
+                    Icons.add_circle_rounded,
+                    size: KTextStyles.regular22.fontSize,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => CreateExpensePage(),
+                      ),
+                    );
+                  },
                 ),
-                onPressed: () {},
               ),
               ExpenseTemplateCard(),
               WhiteCard(
